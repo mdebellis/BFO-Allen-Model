@@ -1034,22 +1034,53 @@ obo:BFO_0000224 rdf:type owl:ObjectProperty ,
                 skos:prefLabel "has last instant"@en .
 
 
-###  http://purl.obolibrary.org/obo/bfo.owl#is_met_by
-:is_met_by rdf:type owl:ObjectProperty ;
-           owl:inverseOf <http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#meets> ;
-           rdfs:label "is met by" .
+###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_during
+:temporal_interval_during rdf:type owl:ObjectProperty ;
+                          owl:inverseOf bal:temporal_interval_contains ;
+                          rdfs:label "temporal interval during" .
 
 
-###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_is_contained_in
-:temporal_interval_is_contained_in rdf:type owl:ObjectProperty ;
-                                   owl:inverseOf bal:temporal_interval_contains ;
-                                   rdfs:label "temporal interval is contained in" .
+###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_finishes
+:temporal_interval_finishes rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :temporal_interval_is_finished_by ;
+                            rdfs:domain obo:BFO_0000202 ;
+                            rdfs:range obo:BFO_0000202 ;
+                            rdfs:label "temporal interval finishes" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_is_equal_to
+:temporal_interval_is_equal_to rdf:type owl:ObjectProperty ;
+                               rdfs:label "temporal interval is equal to" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_is_finished_by
+:temporal_interval_is_finished_by rdf:type owl:ObjectProperty ;
+                                  rdfs:label "temporal interval is finished by" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_is_met_by
+:temporal_interval_is_met_by rdf:type owl:ObjectProperty ;
+                             owl:inverseOf <http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#temporal_interval_meets> ;
+                             rdfs:label "temporal interval is met by" .
 
 
 ###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_is_overlapped_by
 :temporal_interval_is_overlapped_by rdf:type owl:ObjectProperty ;
                                     owl:inverseOf bal:temporal_interval_overlaps_with ;
                                     rdfs:label "temporal interval is overlapped by" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_is_started_by
+:temporal_interval_is_started_by rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :temporal_interval_starts ;
+                                 rdfs:label "temporal interval is started by" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#temporal_interval_starts
+:temporal_interval_starts rdf:type owl:ObjectProperty ;
+                          rdfs:domain obo:BFO_0000202 ;
+                          rdfs:range obo:BFO_0000202 ;
+                          rdfs:label "temporal interval starts" .
 
 
 ###  http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/temporal_interval_contains
@@ -1068,10 +1099,11 @@ bal:temporal_interval_overlaps_with rdf:type owl:ObjectProperty ;
                                     rdfs:label "temporal interval overlaps with" .
 
 
-###  http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#meets
-<http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#meets> rdf:type owl:ObjectProperty ;
-                                                                                 rdfs:domain obo:BFO_0000202 ;
-                                                                                 rdfs:comment "Allen Model" .
+###  http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#temporal_interval_meets
+<http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#temporal_interval_meets> rdf:type owl:ObjectProperty ;
+                                                                                                   rdfs:domain obo:BFO_0000202 ;
+                                                                                                   rdfs:comment "Allen Model" ;
+                                                                                                   rdfs:label "temporal interval meets" .
 
 
 #################################################################
@@ -1630,23 +1662,93 @@ obo:BFO_0000203 rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://purl.obolibrary.org/obo/bfo.owl#End_Of_Inflation
-:End_Of_Inflation rdf:type owl:NamedIndividual ,
-                           obo:BFO_0000203 ;
-                  rdfs:label "End Of Inflation" .
+###  http://purl.obolibrary.org/obo/bfo.owl#American_Civil_War
+:American_Civil_War rdf:type owl:NamedIndividual ,
+                             obo:BFO_0000202 ;
+                    obo:BFO_0000222 :April_12_1861 ;
+                    obo:BFO_0000224 :May_26_1865 ;
+                    rdfs:label "American Civil War" .
 
 
-###  http://purl.obolibrary.org/obo/bfo.owl#Heat_Death_of_the_Universe
-:Heat_Death_of_the_Universe rdf:type owl:NamedIndividual ,
-                                     obo:BFO_0000203 ;
-                            rdfs:label "Heat Death of the Universe" .
+###  http://purl.obolibrary.org/obo/bfo.owl#April_12_1861
+:April_12_1861 rdf:type owl:NamedIndividual ,
+                        obo:BFO_0000203 ;
+               :dateTime "1861-04-12T00:00:00Z"^^xsd:dateTime ;
+               rdfs:label "April 12, 1861" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#August_7_1945
+:August_7_1945 rdf:type owl:NamedIndividual ,
+                        obo:BFO_0000203 ;
+               :dateTime "1945-08-07T00:00:00Z"^^xsd:dateTime ;
+               rdfs:label "August 7, 1945" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#Battle_of_Gettysburg
+:Battle_of_Gettysburg rdf:type owl:NamedIndividual ,
+                               obo:BFO_0000202 ;
+                      obo:BFO_0000222 :July_1_1863 ;
+                      obo:BFO_0000224 :July_3_1863 ;
+                      rdfs:label "Battle of Gettysburg" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#German_Invasion_of_France
+:German_Invasion_of_France rdf:type owl:NamedIndividual ,
+                                    obo:BFO_0000202 ;
+                           obo:BFO_0000222 :May_10_1940 ;
+                           obo:BFO_0000224 :June_25_1940 ;
+                           rdfs:label "German Invasion of France" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#Invasion_of_Poland
+:Invasion_of_Poland rdf:type owl:NamedIndividual ,
+                             obo:BFO_0000202 ;
+                    obo:BFO_0000222 :OWLNamedIndividual_031a770c_108b_4314_a6fa_2940bac98bbe ;
+                    obo:BFO_0000224 :October_6_1939 ;
+                    rdfs:label "Invasion of Poland" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#July_1_1863
+:July_1_1863 rdf:type owl:NamedIndividual ,
+                      obo:BFO_0000203 ;
+             :dateTime "1863-07-01T00:00:00Z"^^xsd:dateTime ;
+             rdfs:label "July 1, 1863" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#July_3_1863
+:July_3_1863 rdf:type owl:NamedIndividual ,
+                      obo:BFO_0000203 ;
+             :dateTime "1863-07-03T00:00:00Z"^^xsd:dateTime ;
+             rdfs:label "July 3, 1863" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#June_25_1940
+:June_25_1940 rdf:type owl:NamedIndividual ,
+                       obo:BFO_0000203 ;
+              :dateTime "1940-06-25T00:00:00Z"^^xsd:dateTime ;
+              rdfs:label "June 25, 1940" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#May_10_1940
+:May_10_1940 rdf:type owl:NamedIndividual ,
+                      obo:BFO_0000203 ;
+             :dateTime "1940-05-10T00:00:00Z"^^xsd:dateTime ;
+             rdfs:label "May 10, 1940" .
+
+
+###  http://purl.obolibrary.org/obo/bfo.owl#May_26_1865
+:May_26_1865 rdf:type owl:NamedIndividual ,
+                      obo:BFO_0000203 ;
+             :dateTime "1865-05-26T00:00:00Z"^^xsd:dateTime ;
+             rdfs:label "May 26, 1865" .
 
 
 ###  http://purl.obolibrary.org/obo/bfo.owl#OWLNamedIndividual_031a770c_108b_4314_a6fa_2940bac98bbe
 :OWLNamedIndividual_031a770c_108b_4314_a6fa_2940bac98bbe rdf:type owl:NamedIndividual ,
                                                                   obo:BFO_0000203 ;
+                                                         obo:BFO_0000224 :OWLNamedIndividual_8ac2f73d_8f44_473f_ab8b_31d3269d0d44 ;
                                                          :dateTime "1939-09-01T00:00:00Z"^^xsd:dateTime ;
-                                                         rdfs:label "September 1 1939"@en .
+                                                         rdfs:label "September 1, 1939"@en .
 
 
 ###  http://purl.obolibrary.org/obo/bfo.owl#OWLNamedIndividual_2889736c_9cfb_4737_8ae8_9261dee67f7e
@@ -1668,14 +1770,14 @@ obo:BFO_0000203 rdf:type owl:Class ;
 :OWLNamedIndividual_8ac2f73d_8f44_473f_ab8b_31d3269d0d44 rdf:type owl:NamedIndividual ,
                                                                   obo:BFO_0000203 ;
                                                          :dateTime "1945-09-02T00:00:00Z"^^xsd:dateTime ;
-                                                         rdfs:label "September 2 1945"@en .
+                                                         rdfs:label "September 2, 1945"@en .
 
 
 ###  http://purl.obolibrary.org/obo/bfo.owl#OWLNamedIndividual_e0d1e3cb_d411_45ec_8491_a40e2cd8517d
 :OWLNamedIndividual_e0d1e3cb_d411_45ec_8491_a40e2cd8517d rdf:type owl:NamedIndividual ,
                                                                   obo:BFO_0000203 ;
                                                          :dateTime "1946-07-04T00:00:00Z"^^xsd:dateTime ;
-                                                         rdfs:label "July 4 1946"@en .
+                                                         rdfs:label "July 4, 1946"@en .
 
 
 ###  http://purl.obolibrary.org/obo/bfo.owl#OWLNamedIndividual_e1a37eab_fa6b_48fb_a39f_97046989370d
@@ -1686,32 +1788,36 @@ obo:BFO_0000203 rdf:type owl:Class ;
                                                          rdfs:label "World War II"@en .
 
 
-###  http://purl.obolibrary.org/obo/bfo.owl#The_Big_Bang
-:The_Big_Bang rdf:type owl:NamedIndividual ,
-                       obo:BFO_0000203 ;
-              rdfs:label "The Big Bang" .
+###  http://purl.obolibrary.org/obo/bfo.owl#October_6_1939
+:October_6_1939 rdf:type owl:NamedIndividual ,
+                         obo:BFO_0000203 ;
+                :dateTime "1939-10-06T00:00:00Z"^^xsd:dateTime ;
+                rdfs:label "October 6 1939" .
 
 
-###  http://purl.obolibrary.org/obo/bfo.owl#The_Early_Universe
-:The_Early_Universe rdf:type owl:NamedIndividual ,
-                             obo:BFO_0000202 ;
-                    obo:BFO_0000222 :End_Of_Inflation ;
-                    obo:BFO_0000224 :Transparent_Universe ;
-                    rdfs:label "The Early Universe" .
+###  http://purl.obolibrary.org/obo/bfo.owl#Soviet-Japanese_War
+:Soviet-Japanese_War rdf:type owl:NamedIndividual ,
+                              obo:BFO_0000202 ;
+                     obo:BFO_0000222 :August_7_1945 ;
+                     obo:BFO_0000224 :OWLNamedIndividual_8ac2f73d_8f44_473f_ab8b_31d3269d0d44 ;
+                     rdfs:comment "An example to test the allen finish relation. This should finish World_War_II (started after WWII and ended at the same time)." ;
+                     rdfs:label "Soviet-Japanese War" .
 
 
-###  http://purl.obolibrary.org/obo/bfo.owl#The_Inflationary_Epoch
-:The_Inflationary_Epoch rdf:type owl:NamedIndividual ,
-                                 obo:BFO_0000202 ;
-                        obo:BFO_0000222 :The_Big_Bang ;
-                        obo:BFO_0000224 :End_Of_Inflation ;
-                        rdfs:label "The Inflationary Epoch" .
+###  http://purl.obolibrary.org/obo/bfo.owl#The_Phony_War
+:The_Phony_War rdf:type owl:NamedIndividual ,
+                        obo:BFO_0000202 ;
+               obo:BFO_0000222 :OWLNamedIndividual_031a770c_108b_4314_a6fa_2940bac98bbe ;
+               obo:BFO_0000224 :May_10_1940 ;
+               rdfs:label "The Phony War" .
 
 
-###  http://purl.obolibrary.org/obo/bfo.owl#Transparent_Universe
-:Transparent_Universe rdf:type owl:NamedIndividual ,
-                               obo:BFO_0000203 ;
-                      rdfs:label "Transparent Universe" .
+###  http://purl.obolibrary.org/obo/bfo.owl#UK_Participation_in_WWII
+:UK_Participation_in_WWII rdf:type owl:NamedIndividual ,
+                                   obo:BFO_0000202 ;
+                          obo:BFO_0000222 :OWLNamedIndividual_031a770c_108b_4314_a6fa_2940bac98bbe ;
+                          obo:BFO_0000224 :OWLNamedIndividual_8ac2f73d_8f44_473f_ab8b_31d3269d0d44 ;
+                          rdfs:label "UK Participation in WWII" .
 
 
 #################################################################
@@ -1768,21 +1874,21 @@ obo:BFO_0000203 rdf:type owl:Class ;
 
 <urn:swrl:var#t1li> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-<urn:swrl:var#tr2> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-<urn:swrl:var#tr1> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
 <urn:swrl:var#t1fi> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#tInterval2> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 <urn:swrl:var#t2li> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:ti1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#tInterval1> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:dt1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#ti1> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:ti2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#dt1> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:dt2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#ti2> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#dt2> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
@@ -1793,39 +1899,39 @@ obo:BFO_0000203 rdf:type owl:Class ;
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr2> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t1fi> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
                                                                 ] ;
                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
                                                                            ] ;
                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
-                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t2li> ;
-                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t1li> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2li>
                                                                                       ] ;
                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
-                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr2> ;
-                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2li>
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
                                                                                                  ] ;
                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                                                               <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
-                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
-                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2li>
                                                                                                             ] ;
                                                                                                   rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                                                              rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
-                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t1fi> ;
-                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
                                                                                                                        ] ;
                                                                                                              rdf:rest rdf:nil
                                                                                                            ]
@@ -1837,9 +1943,9 @@ obo:BFO_0000203 rdf:type owl:Class ;
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> bal:temporal_interval_contains ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tr2>
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> bal:temporal_interval_overlaps_with ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tInterval2>
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
@@ -1849,37 +1955,37 @@ obo:BFO_0000203 rdf:type owl:Class ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t2fi> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t1fi> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr2> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
                                                                 ] ;
                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t1li> ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2li>
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
                                                                            ] ;
                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
-                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
-                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t2li> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
                                                                                       ] ;
                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
-                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr2> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2li>
                                                                                                  ] ;
                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                                                               <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
-                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
                                                                                                               <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
                                                                                                             ] ;
                                                                                                   rdf:rest rdf:nil
@@ -1891,9 +1997,9 @@ obo:BFO_0000203 rdf:type owl:Class ;
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> bal:temporal_interval_overlaps_with ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tr2>
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> bal:temporal_interval_contains ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tInterval2>
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
@@ -1903,13 +2009,133 @@ obo:BFO_0000203 rdf:type owl:Class ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr2> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t1li> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tInterval2>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t1li> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2li>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2li>
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :temporal_interval_starts ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tInterval2>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1fi>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t1li>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :temporal_interval_is_equal_to ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tInterval1>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000222 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval2> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000224 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t2fi>
                                                                 ] ;
                                                       rdf:rest rdf:nil
@@ -1917,35 +2143,32 @@ obo:BFO_0000203 rdf:type owl:Class ;
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#meets> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tr1> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tr2>
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/mdebe/ontologies/2023/7/BFOAllenModel/bfo.owl#temporal_interval_meets> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#tInterval1> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#tInterval2>
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
  ] .
 
-[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "" ;
-   rdfs:label "S4" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :dateTime ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :ti1 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :dt1
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#ti1> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#dt1>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :dateTime ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :ti2 ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :dt2
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#ti2> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#dt2>
                                                                 ] ;
                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
                                                                              <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
-                                                                             <http://www.w3.org/2003/11/swrl#arguments> ( :dt1
-                                                                                                                          :dt2
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl:var#dt1>
+                                                                                                                          <urn:swrl:var#dt2>
                                                                                                                         )
                                                                            ] ;
                                                                  rdf:rest rdf:nil
@@ -1955,12 +2178,11 @@ obo:BFO_0000203 rdf:type owl:Class ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> obo:BFO_0000063 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :ti2 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :ti1
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#ti2> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#ti1>
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
  ] .
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
-
